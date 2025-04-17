@@ -16,7 +16,7 @@ import { ScrollAnimationProvider } from "@/components/scroll-animation-provider"
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col lg:px-10">
       <Navbar />
       <ScrollAnimationProvider>
         <main className="flex-1">
