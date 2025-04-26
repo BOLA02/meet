@@ -29,32 +29,32 @@ export default function HeroSection() {
           <div className="relative perspective-[1000px] scroll-animate">
             <div className="grid grid-cols-3 gap-3 transform-style-3d">
               {[
-                "/images/user1.png",
-                "/images/user2.png",
-                "/images/user3.png",
-                "/images/user4.png",
-                "/images/user5.png",
-                "/images/user6.png",
-                "/images/user7.png",
-                "/images/user8.png",
-                "/images/user9.png",
+                "/assets/Ellipse 539.png",
+                "/assets/Ellipse 539.png",
+                "/assets/Ellipse 539.png",
+                "/assets/Ellipse 539.png",
+                "/assets/Ellipse 539.png",
+                "/assets/Ellipse 539.png",
+                "/assets/Ellipse 539.png",
+                "/assets/Ellipse 539.png",
+                "/assets/Ellipse 539.png",
               ].map((src, i) => (
                 <div
                   key={i}
-                  className={`aspect-square rounded-lg glass-card overflow-hidden shadow-lg transform-style-3d animate-rotate-3d animation-delay-${i * 100}`}
+                  className={`aspect-square rounded-full glass-card overflow-hidden shadow-lg transform-style-3d animate-rotate-3d animation-delay-${i * 100}`}
                 >
                   <Image
                     src={src || "/placeholder.svg"}
                     alt="Video call participant"
-                    width={100}
-                    height={100}
-                    className="h-full w-full rounded-lg object-cover"
+                    width={40}
+                    height={40}
+                    className="h-full w-full rounded-full object-fit"
                   />
                 </div>
               ))}
             </div>
 
-            {/* Additional floating 3D elements */}
+            {/* Additional floating 3D elements
             <div className="absolute -top-10 -right-10 w-40 h-40 perspective-[1000px]">
               <div className="w-full h-full rounded-lg glass-card overflow-hidden shadow-lg transform-style-3d animate-rotate-y animation-delay-500">
                 <Image
@@ -77,7 +77,7 @@ export default function HeroSection() {
                   className="h-full w-full object-cover"
                 />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
