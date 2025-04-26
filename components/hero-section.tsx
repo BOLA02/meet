@@ -29,7 +29,7 @@ export default function HeroSection() {
           <div className="relative perspective-[1000px] scroll-animate">
             <div className="grid grid-cols-3 gap-3 transform-style-3d">
               {[
-                "/images/user1.png",
+                "/images/user5.png",
                 "/images/user2.png",
                 "/images/user3.png",
                 "/images/user4.png",
