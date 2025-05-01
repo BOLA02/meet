@@ -125,7 +125,7 @@ export default function AboutPage() {
                             Our core values are rooted in reliability, innovation, inclusivity, and simplicity. We believe in building dependable
                             systems that users can trust every day. Innovation drives our features and functionality, while inclusivity ensures
                             our tools are accessible to everyone, regardless of background or ability. Simplicity is key to delivering seamless
-                            user experiences. These values guide every decision we make—from product development to customer engagement—helping
+                            user experiences. These values guide every decision we make from product development to customer engagement helping
                             us create a platform that truly empowers people and organizations around the world.
                         </p>
                     </div>
