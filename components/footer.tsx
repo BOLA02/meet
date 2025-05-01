@@ -4,31 +4,31 @@ import { Button } from "@/components/ui/button"
 
 export default function Footer() {
   return (
-    <footer className="bg-dark-700 py-12 relative">
+    <footer className="bg-dark-700 px-8 relative">
       <div className="absolute inset-0 bg-mesh-pattern opacity-5"></div>
 
       {/* 3D floating elements */}
       <div className="absolute bottom-10 left-10 w-16 h-16 perspective-[1000px] hidden md:block">
         <div className="w-full h-full rounded-lg overflow-hidden shadow-lg transform-style-3d animate-rotate-3d">
-          <Image
+          {/* <Image
             src="/images/analytics.png"
             alt="3D Element"
             width={64}
             height={64}
             className="h-full w-full object-cover"
-          />
+          /> */}
         </div>
       </div>
 
       <div className="absolute top-10 right-10 w-12 h-12 perspective-[1000px] hidden md:block">
         <div className="w-full h-full rounded-lg overflow-hidden shadow-lg transform-style-3d animate-rotate-3d animation-delay-500">
-          <Image
+          {/* <Image
             src="/images/collaboration.png"
             alt="3D Element"
             width={48}
             height={48}
             className="h-full w-full object-cover"
-          />
+          /> */}
         </div>
       </div>
 
@@ -38,7 +38,7 @@ export default function Footer() {
             <div className="flex items-center mb-4">
               <h3 className="text-xl font-bold text-purple-400">Meet</h3>
               <div className="ml-2 w-8 h-8 perspective-[1000px]">
-                <div className="w-full h-full rounded-lg overflow-hidden shadow-lg transform-style-3d animate-rotate-y">
+                {/* <div className="w-full h-full rounded-lg overflow-hidden shadow-lg transform-style-3d animate-rotate-y">
                   <Image
                     src="/images/logo.png"
                     alt="3D Logo"
@@ -46,7 +46,7 @@ export default function Footer() {
                     height={32}
                     className="h-full w-full object-contain"
                   />
-                </div>
+                </div> */}
               </div>
             </div>
             <p className="text-sm text-gray-300">

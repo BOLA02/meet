@@ -1,5 +1,3 @@
-import Navbar from "@/components/navbar"
-import Footer from "@/components/footer"
 import HeroSection from "@/components/hero-section"
 import InterfaceSection from "@/components/interface-section"
 import PlatformSection from "@/components/platform-section"
@@ -17,7 +15,6 @@ import { ScrollAnimationProvider } from "@/components/scroll-animation-provider"
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col lg:px-10">
-      <Navbar />
       <ScrollAnimationProvider>
         <main className="flex-1">
           <WelcomeModal />
@@ -34,7 +31,6 @@ export default function Home() {
           <JoinSection />
         </main>
       </ScrollAnimationProvider>
-      <Footer />
     </div>
   )
 }

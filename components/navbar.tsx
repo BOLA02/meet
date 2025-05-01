@@ -16,7 +16,7 @@ export default function Navbar() {
 
     return (
         <header className="border-b border-dark-300/20 bg-dark-600/80 backdrop-blur-md sticky top-0 z-50">
-            <div className="container mx-auto flex h-16 items-center justify-between">
+            <div className="mx-auto flex h-16 items-center justify-between px-12">
                 <div className="flex items-center">
                     <Link href="/" className="mr-6 flex items-center">
                         <span className="text-xl font-bold text-purple-400">Meet</span>

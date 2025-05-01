@@ -16,11 +16,11 @@ export const products = [
             },
             {
                 icon: '/assets/check.png',
-                link: 'Recording & Cloud Storage'
+                link: 'Recording & Cloud Storage (Indoor)'
             },
             {
                 icon: '/assets/check.png',
-                link: 'Recording & Cloud Storage'
+                link: 'Recording & Cloud Storage (Outdoor)'
             },
         ]
     },
@@ -133,7 +133,7 @@ export const solutions = [
         links: [
             {
                 icon: '/assets/check.png',
-                link: 'Virtual whiteboards and real-time collaboration'
+                link: 'Virtual whiteboards and real-time collaboration (Indoor)'
             },
             {
                 icon: '/assets/check.png',
@@ -145,7 +145,7 @@ export const solutions = [
             },
             {
                 icon: '/assets/check.png',
-                link: 'Virtual whiteboards and real-time collaboration'
+                link: 'Virtual whiteboards and real-time collaboration (Outdoor)'
             },
         ]
     },
