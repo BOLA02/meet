@@ -27,6 +27,7 @@ export default function WelcomeModal() {
       {/* Modal */}
       <div className="relative z-10 w-full max-w-md transform overflow-hidden rounded-2xl bg-dark-500 p-6 shadow-xl transition-all animate-in fade-in slide-in-from-bottom-10 duration-300 glass-card gradient-border">
         <button
+          title='close'
           onClick={() => setIsOpen(false)}
           className="absolute right-4 top-4 rounded-full p-1 text-gray-400 hover:bg-dark-400 hover:text-white transition-colors"
         >
@@ -44,8 +45,8 @@ export default function WelcomeModal() {
         </h2>
 
         <p className="mb-4 text-gray-300">
-          We're excited to announce that Meet is now live! Experience the future of virtual meetings with our powerful
-          platform.
+          We're excited to announce that Meet is now live! Experience the future of virtual 
+          meetings with our powerful platform.
         </p>
 
         <div className="mb-6 perspective-[1000px]">
@@ -73,7 +74,7 @@ export default function WelcomeModal() {
           </Button>
           <Button
             variant="outline"
-            className="flex-1 rounded-full border-cyan-500 px-4 py-2 text-cyan-400 hover:bg-cyan-500/10 transition-colors shadow-lg"
+            className="flex-1 rounded-full border-cyan-500 px-4 py-2 text-cyan-400 hover:bg-cyan-500/10 hover:text-white transition-colors shadow-lg"
             onClick={() => setIsOpen(false)}
           >
             Learn More

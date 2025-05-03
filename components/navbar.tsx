@@ -78,14 +78,17 @@ export default function Navbar() {
 
                 <div className="hidden lg:flex items-center space-x-8">
                     <Link
-                        href="#"
+                        href="/login"
                         className="text-sm font-medium text-gray-300 hover:text-purple-400 transition-colors"
                     >
                         Log in
                     </Link>
+                    
+                    <Link href='/register'>
                     <Button className="rounded-full bg-purple-500 px-4 py-2 text-dark-600 hover:bg-purple-400 transition-colors shadow-md hover:shadow-purple-500/20">
                         Sign Up For Free
-                    </Button>
+                                </Button>
+                    </Link>
                 </div>
 
                 {/* Mobile Menu Button */}
