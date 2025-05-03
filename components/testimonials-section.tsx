@@ -7,50 +7,50 @@ export default function TestimonialsSection() {
         "Meet has transformed how our team collaborates. The video quality is exceptional and the interface is intuitive.",
       author: "Sarah Johnson",
       role: "Product Manager",
-      avatar: "/images/user1.png",
+      avatar: "/images/user5.png",
       company: "TechCorp",
-      companyLogo: "/images/company-logo.png",
+      companyLogo: "/images/Great Logo Design.png",
     },
     {
       content: "We've tried many video conferencing tools, but Meet stands out with its reliability and feature set.",
       author: "Michael Chen",
       role: "CTO, TechStart",
-      avatar: "/images/user2.png",
+      avatar: "/assets/Ellipse 134.png",
       company: "TechStart",
-      companyLogo: "/images/company-logo.png",
+      companyLogo: "/images/logo1.png",
     },
     {
       content: "The AI recording feature saves us hours of note-taking and helps us focus on the conversation instead.",
       author: "Jessica Brown",
       role: "Team Lead",
-      avatar: "/images/user3.png",
+      avatar: "/assets/Ellipse 534.png",
       company: "InnovateCo",
-      companyLogo: "/images/company-logo.png",
+      companyLogo: "/images/logo1.png",
     },
     {
       content: "Meet's 3D interface and immersive features make virtual meetings feel more engaging and productive.",
       author: "David Wilson",
       role: "Design Director",
-      avatar: "/images/user4.png",
+      avatar: "/images/user5.png",
       company: "CreativeStudio",
-      companyLogo: "/images/company-logo.png",
+      companyLogo: "/images/Great Logo Design.png",
     },
     {
       content: "The security features and encryption give us peace of mind when discussing sensitive information.",
       author: "Emily Rodriguez",
       role: "Security Officer",
-      avatar: "/images/user5.png",
+      avatar: "/assets/Ellipse 538.png",
       company: "SecureTech",
-      companyLogo: "/images/company-logo.png",
+      companyLogo: "/images/logo1.png",
     },
     {
       content:
         "Meet's integration capabilities with our existing tools made adoption across our organization seamless.",
       author: "Robert Kim",
       role: "IT Director",
-      avatar: "/images/user6.png",
+      avatar: "/images/user5.png",
       company: "GlobalCorp",
-      companyLogo: "/images/company-logo.png",
+      companyLogo: "/images/Great Logo Design.png",
     },
   ]
 
@@ -71,7 +71,7 @@ export default function TestimonialsSection() {
                 <div className="mb-2 flex justify-between items-center">
                   <div className="h-8 w-8 overflow-hidden animate-rotate-y">
                     <Image
-                      src={testimonial.companyLogo || "/placeholder.svg"}
+                      src={testimonial.companyLogo || "/images/logo1"}
                       alt={testimonial.company}
                       width={32}
                       height={32}

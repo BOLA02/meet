@@ -64,7 +64,7 @@ export default function PricingSection() {
                     <div className="flex -space-x-2 overflow-hidden mr-4">
                         {[1, 2, 3, 4, 5].map((i) => (
                             <Avatar key={i} className="border-2 border-black w-8 h-8">
-                                <AvatarImage src={`/placeholder.svg?height=32&width=32`} />
+                                <AvatarImage src={`/assets/user2?height=32&width=32`} />
                                 <AvatarFallback>U{i}</AvatarFallback>
                             </Avatar>
                         ))}

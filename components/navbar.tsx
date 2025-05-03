@@ -84,7 +84,7 @@ export default function Navbar() {
                         Log in
                     </Link>
                     <Button className="rounded-full bg-purple-500 px-4 py-2 text-dark-600 hover:bg-purple-400 transition-colors shadow-md hover:shadow-purple-500/20">
-                        Sign Up
+                        Sign Up For Free
                     </Button>
                 </div>
 

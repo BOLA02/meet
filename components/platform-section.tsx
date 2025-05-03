@@ -35,21 +35,15 @@ export default function PlatformSection() {
 
             {/* Additional feature with image */}
             <div className="flex items-start space-x-3 glass-card p-4 rounded-lg transform-style-3d animate-pulse-3d animation-delay-600">
-              <div className="relative w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 animate-rotate-y">
-                <Image
-                  src="/images/ai-assistant.png"
-                  alt="AI Assistant"
-                  width={48}
-                  height={48}
-                  className="h-full w-full object-cover"
-                />
-              </div>
+            <CheckCircle className="h-6 w-6 flex-shrink-0 text-purple-400" />
               <div>
                 <h3 className="text-lg font-semibold text-white">AI Assistant</h3>
                 <p className="text-gray-300">Get smart suggestions and automated meeting summaries</p>
               </div>
             </div>
           </div>
+
+
           <div className="grid grid-cols-2 gap-3 perspective-[1000px] scroll-animate">
             <div className="aspect-video rounded-lg glass-card overflow-hidden shadow-lg col-span-2 animate-rotate-3d">
               <Image
@@ -64,7 +58,7 @@ export default function PlatformSection() {
             </div>
             <div className="aspect-video rounded-lg glass-card overflow-hidden shadow-lg animate-rotate-y animation-delay-300">
               <Image
-                src="/images/collaboration.png"
+                src="/images/meeting 2.png"
                 alt="3D Collaboration Tools"
                 width={200}
                 height={120}
@@ -75,7 +69,7 @@ export default function PlatformSection() {
             </div>
             <div className="aspect-video rounded-lg glass-card overflow-hidden shadow-lg animate-rotate-y animation-delay-600">
               <Image
-                src="/images/analytics.png"
+                src="/images/event1.png"
                 alt="3D Analytics Dashboard"
                 width={200}
                 height={120}
@@ -88,7 +82,7 @@ export default function PlatformSection() {
             {/* Additional 3D images */}
             <div className="aspect-video rounded-lg glass-card overflow-hidden shadow-lg animate-rotate-x animation-delay-900">
               <Image
-                src="/images/ai-features.png"
+                src="/images/user5.png"
                 alt="3D AI Features"
                 width={200}
                 height={120}
@@ -99,7 +93,7 @@ export default function PlatformSection() {
             </div>
             <div className="aspect-video rounded-lg glass-card overflow-hidden shadow-lg animate-rotate-x animation-delay-1200">
               <Image
-                src="/images/security.png"
+                src="/images/event4.png"
                 alt="3D Security"
                 width={200}
                 height={120}

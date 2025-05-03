@@ -14,7 +14,7 @@ export default function CollaborateSection() {
             <div className="glass-card rounded-lg p-6 shadow-xl gradient-border glow transform-style-3d animate-rotate-3d">
               <h3 className="text-xl font-semibold text-white mb-4">Global Collaboration</h3>
               <div className="relative h-60 rounded-lg overflow-hidden">
-                <Image src="/images/global-collab.png" alt="Global Collaboration" fill className="object-cover" />
+                <Image src="/images/event2.png" alt="Global Collaboration" fill className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-600/70 to-transparent"></div>
               </div>
               <p className="mt-4 text-gray-300">Connect with team members across different time zones and locations</p>
@@ -25,7 +25,7 @@ export default function CollaborateSection() {
             <div className="glass-card rounded-lg p-6 shadow-xl gradient-border glow transform-style-3d animate-rotate-3d animation-delay-500">
               <h3 className="text-xl font-semibold text-white mb-4">Real-time Document Editing</h3>
               <div className="relative h-60 rounded-lg overflow-hidden">
-                <Image src="/images/document-editing.png" alt="Document Collaboration" fill className="object-cover" />
+                <Image src="/images/event4.png" alt="Document Collaboration" fill className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-600/70 to-transparent"></div>
               </div>
               <p className="mt-4 text-gray-300">Edit documents together in real-time with multiple collaborators</p>
@@ -40,11 +40,11 @@ export default function CollaborateSection() {
           </div>
           <div className="space-y-3">
             {[
-              "/images/user1.png",
-              "/images/user2.png",
-              "/images/user3.png",
-              "/images/user4.png",
-              "/images/user5.png",
+              "/assets/Ellipse 134.png",
+              "/assets/Ellipse 136.png",
+              "/assets/Ellipse 554.png",
+              "/assets/Ellipse 566.png",
+              "/assets/Ellipse 557.png",
             ].map((src, i) => (
               <div
                 key={i}
@@ -53,7 +53,7 @@ export default function CollaborateSection() {
                 <div className="flex items-center space-x-3">
                   <div className="h-10 w-10 overflow-hidden rounded-full bg-dark-300/60 border border-teal-500/30 animate-rotate-y animation-delay-500">
                     <Image
-                      src={src || "/placeholder.svg"}
+                      src={src || "/images/"}
                       alt="User avatar"
                       width={40}
                       height={40}

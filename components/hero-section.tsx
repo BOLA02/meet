@@ -30,14 +30,14 @@ export default function HeroSection() {
             <div className="grid grid-cols-3 gap-3 transform-style-3d">
               {[
                 "/assets/Ellipse 539.png",
+                "/assets/Ellipse 567.png",
+                "/assets/Ellipse 538.png",
                 "/assets/Ellipse 539.png",
+                "/assets/Ellipse 557.png",
+                "/assets/Ellipse 564.png",
+                "/assets/Ellipse 566.png",
                 "/assets/Ellipse 539.png",
-                "/assets/Ellipse 539.png",
-                "/assets/Ellipse 539.png",
-                "/assets/Ellipse 539.png",
-                "/assets/Ellipse 539.png",
-                "/assets/Ellipse 539.png",
-                "/assets/Ellipse 539.png",
+                "/assets/Ellipse 555.png",
 
               ].map((src, i) => (
                 <div

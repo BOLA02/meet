@@ -27,8 +27,10 @@ export default function InterfaceSection() {
             <div className="grid grid-cols-4 gap-2 transform-style-3d">
               {/* Video grid */}
               {[
-                "/images/user1.png",
-                "/images/user2.png",
+                "/assets/Ellipse 134.png",
+                "/assets/Ellipse 136.png",
+                "/assets/Ellipse 537.png",
+                "/assets/Ellipse 536.png",
                 /* ... other images ... */
               ].map((src, i) => (
                 <div

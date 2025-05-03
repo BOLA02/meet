@@ -27,7 +27,7 @@ export default function RecordingSection() {
             <div className="glass-card rounded-lg p-6 shadow-xl gradient-border glow transform-style-3d animate-rotate-3d">
               <h3 className="text-xl font-semibold text-white mb-4">Automatic Transcription</h3>
               <div className="relative h-60 rounded-lg overflow-hidden">
-                <Image src="/images/ai-transcription.png" alt="AI Transcription" fill className="object-cover" />
+                <Image src="/images/event2.png" alt="AI Transcription" fill className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-600/70 to-transparent"></div>
               </div>
               <p className="mt-4 text-gray-300">AI-powered transcription converts speech to text in real-time</p>
@@ -38,7 +38,7 @@ export default function RecordingSection() {
             <div className="glass-card rounded-lg p-6 shadow-xl gradient-border glow transform-style-3d animate-rotate-3d animation-delay-500">
               <h3 className="text-xl font-semibold text-white mb-4">Smart Meeting Summaries</h3>
               <div className="relative h-60 rounded-lg overflow-hidden">
-                <Image src="/images/ai-summaries.png" alt="AI Summaries" fill className="object-cover" />
+                <Image src="/images/event4.png" alt="AI Summaries" fill className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-600/70 to-transparent"></div>
               </div>
               <p className="mt-4 text-gray-300">
@@ -50,7 +50,7 @@ export default function RecordingSection() {
 
         <div className="mx-auto max-w-3xl overflow-hidden rounded-lg glass-card shadow-xl gradient-border glow perspective-[1000px] scroll-animate">
           <div className="relative aspect-video transform-style-3d animate-rotate-x">
-            <Image src="/images/video-demo.png" alt="3D Video recording demo" fill className="object-cover" />
+            <Image src="/images/meeting.png" alt="3D Video recording demo" fill className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-dark-600 to-transparent opacity-50"></div>
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="flex h-16 w-16 items-center justify-center rounded-full bg-purple-500/80 text-white shadow-lg hover:bg-purple-400/80  cursor-pointer transform hover:scale-110 transition-transform duration-300 animate-pulse-3d">

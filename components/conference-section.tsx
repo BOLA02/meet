@@ -32,15 +32,9 @@ export default function ConferenceSection() {
 
             {/* Additional features with images */}
             <div className="flex items-center space-x-3 glass-card p-3 rounded-lg transform-style-3d animate-pulse-3d animation-delay-1000">
-              <div className="relative w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 animate-rotate-y">
-                <Image
-                  src="https://cdn.pixabay.com/photo/2016/11/19/14/16/brain-1839510_1280.jpg"
-                  alt="AI Noise Suppression"
-                  width={40}
-                  height={40}
-                  className="h-full w-full object-cover"
-                />
-              </div>
+            
+              <CheckCircle className="h-5 w-5 flex-shrink-0 text-purple-400" />
+              
               <span className="text-gray-200">AI Noise Suppression</span>
             </div>
 

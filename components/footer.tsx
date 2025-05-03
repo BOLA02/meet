@@ -4,140 +4,88 @@ import { Button } from "@/components/ui/button"
 
 export default function Footer() {
   return (
-    <footer className="bg-dark-700 px-8 relative">
-      <div className="absolute inset-0 bg-mesh-pattern opacity-5"></div>
-
-      {/* 3D floating elements */}
-      <div className="absolute bottom-10 left-10 w-16 h-16 perspective-[1000px] hidden md:block">
-        <div className="w-full h-full rounded-lg overflow-hidden shadow-lg transform-style-3d animate-rotate-3d">
-          {/* <Image
-            src="/images/analytics.png"
-            alt="3D Element"
-            width={64}
-            height={64}
-            className="h-full w-full object-cover"
-          /> */}
-        </div>
-      </div>
-
-      <div className="absolute top-10 right-10 w-12 h-12 perspective-[1000px] hidden md:block">
-        <div className="w-full h-full rounded-lg overflow-hidden shadow-lg transform-style-3d animate-rotate-3d animation-delay-500">
-          {/* <Image
-            src="/images/collaboration.png"
-            alt="3D Element"
-            width={48}
-            height={48}
-            className="h-full w-full object-cover"
-          /> */}
-        </div>
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="mb-8 flex flex-col items-start justify-between space-y-8 md:flex-row md:space-y-0">
-          <div className="max-w-xs">
-            <div className="flex items-center mb-4">
-              <h3 className="text-xl font-bold text-purple-400">Meet</h3>
-              <div className="ml-2 w-8 h-8 perspective-[1000px]">
-                {/* <div className="w-full h-full rounded-lg overflow-hidden shadow-lg transform-style-3d animate-rotate-y">
-                  <Image
-                    src="/images/logo.png"
-                    alt="3D Logo"
-                    width={32}
-                    height={32}
-                    className="h-full w-full object-contain"
-                  />
-                </div> */}
-              </div>
+    <footer className="bg-dark-700 px-8 py-4 relative">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Column 1 - Newsletter */}
+          <div>
+            <h2 className="text-xl font-bold text-purple-600 mb-4">Meetio</h2>
+            <p className="text-sm text-white mb-4">Keep in touch with Meetio News and updates</p>
+            
+            <div className="flex">
+              <input 
+                type="email"
+                placeholder="Email..."
+                className="border border-gray-300 rounded-l-lg px-4 py-2 w-full text-sm"
+              />
+              <button className="bg-purple-500 text-white px-4 py-2 rounded-r-lg text-sm">
+                Submit
+              </button>
             </div>
-            <p className="text-sm text-gray-300">
-              Virtual meeting platform for teams and organizations to connect and collaborate effectively.
-            </p>
-            <Button className="mt-4 rounded-full bg-purple-500 px-4 py-2 text-dark-600 hover:bg-purple-400 transition-colors shadow-md hover:shadow-purple-500/20">
-              Sign Up
-            </Button>
           </div>
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-4">
-            <div>
-              <h4 className="mb-3 font-semibold text-white">Company</h4>
-              <ul className="space-y-2 text-sm">
-                <li>
-                  <Link href="#" className="text-gray-300 hover:text-purple-400 transition-colors">
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-gray-300 hover:text-purple-400 transition-colors">
-                    Careers
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-gray-300 hover:text-purple-400 transition-colors">
-                    Press
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="mb-3 font-semibold text-white">Products</h4>
-              <ul className="space-y-2 text-sm">
-                <li>
-                  <Link href="#" className="text-gray-300 hover:text-purple-400 transition-colors">
-                    Meetings
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-gray-300 hover:text-purple-400 transition-colors">
-                    Webinars
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-gray-300 hover:text-purple-400 transition-colors">
-                    Events
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="mb-3 font-semibold text-white">Support</h4>
-              <ul className="space-y-2 text-sm">
-                <li>
-                  <Link href="#" className="text-gray-300 hover:text-purple-400 transition-colors">
-                    Help Center
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-gray-300 hover:text-purple-400 transition-colors">
-                    Contact Us
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-gray-300 hover:text-purple-400 transition-colors">
-                    Privacy
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="mb-3 font-semibold text-white">Connect</h4>
-              <div className="flex space-x-3">
-                {["Twitter", "LinkedIn", "Facebook", "Instagram"].map((social, i) => (
-                  <div key={i} className="perspective-[1000px]">
-                    <div
-                      className="w-8 h-8 rounded-full bg-dark-500 flex items-center justify-center transform-style-3d animate-rotate-y animation-delay-300"
-                      style={{ animationDelay: `${i * 0.2}s` }}
-                    >
-                      <span className="text-purple-400 text-xs">{social.charAt(0)}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
+
+          {/* Column 2 - About */}
+          <div>
+            <h3 className="font-bold mb-4">About</h3>
+            <ul className="space-y-2 text-sm text-gray-600">
+              <li><a href="#" className="text-white  hover:text-purple-500">Our Team</a></li>
+              <li><a href="#" className="text-white   hover:text-purple-500">About Meetio</a></li>
+              <li><a href="#" className="text-white   hover:text-purple-500">Careers</a></li>
+              <li><a href="#" className="text-white   hover:text-purple-500">Privacy at Meetio</a></li>
+              <li><a href="#" className="text-white   hover:text-purple-500">Investors</a></li>
+              <li><a href="#" className="text-white   hover:text-purple-500">Diversity & Inclusion</a></li>
+              <li><a href="#" className="text-white   hover:text-purple-500">Careers at Meetio</a></li>
+            </ul>
+          </div>
+
+          {/* Column 3 - Resources */}
+          <div>
+            <h3 className="font-bold mb-4">Resources</h3>
+            <ul className="space-y-2 text-sm text-gray-600">
+              <li><a href="#" className="text-white   hover:text-purple-500">Meeting Features</a></li>
+              <li><a href="#" className="text-white   hover:text-purple-500">Collaboration Tools</a></li>
+              <li><a href="#" className="text-white   hover:text-purple-500">User Experience & Innovation</a></li>
+              <li><a href="#" className="text-white   hover:text-purple-500">Security & Privacy</a></li>
+            </ul>
+          </div>
+
+          {/* Column 4 - Support */}
+          <div>
+            <h3 className="font-bold mb-4">Support</h3>
+            <ul className="space-y-2 text-sm text-gray-600">
+              <li><a href="#" className="text-white   hover:text-purple-500">Account</a></li>
+              <li><a href="#" className="text-white   hover:text-purple-500">Support Center</a></li>
+              <li><a href="#" className="text-white   hover:text-purple-500">Contact Us</a></li>
+              <li><a href="#" className="text-white   hover:text-purple-500">Feedback</a></li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Copyright */}
+        <div className="mt-12 pt-8 border-t border-gray-200 max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
+          <p className="text-xs  text-purple-400">© 2023 Meetio. All rights reserved.</p>
+          
+          <div className="flex items-center mt-4 md:mt-0">
+            <a href="#" className="text-xs text-white   hover:text-purple-500 mx-2">Terms & Conditions</a>
+            <a href="#" className="text-xs text-white   hover:text-purple-500 mx-2">Privacy Policy</a>
+            <a href="#" className="text-xs text-white   hover:text-purple-500 mx-2">Legal</a>
+            
+            <div className="flex items-center ml-4">
+              <a href="#" className="mx-1">
+                <img src="/api/placeholder/24/24" alt="LinkedIn" className="h-5 w-5" />
+              </a>
+              <a href="#" className="mx-1">
+                <img src="/api/placeholder/24/24" alt="Twitter" className="h-5 w-5" />
+              </a>
+              <a href="#" className="mx-1">
+                <img src="/api/placeholder/24/24" alt="Facebook" className="h-5 w-5" />
+              </a>
             </div>
           </div>
         </div>
-        <div className="border-t border-dark-500 pt-8 text-center text-sm text-gray-400">
-          <p>© {new Date().getFullYear()} Meet. All rights reserved.</p>
-        </div>
-      </div>
-    </footer>
+      </footer>
+
+
+
+    
   )
 }
