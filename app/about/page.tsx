@@ -95,9 +95,9 @@ export default function AboutPage() {
         <div className="bg-black text-white">
             <div className="py-12 px-12 mx-auto">
                 <section className="mb-12 text-center">
-                    <h1 className="text-4xl sm:text-5xl font-bold mb-4">About Us</h1>
+                    <h1 className="text-4xl sm:text-5xl font-bold mb-4"></h1>
                 </section>
-
+{/* 
                 <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                     <div className="bg-purple-400 p-6 rounded-lg lg:col-span-2 flex items-center gap-3">
                         <h2 className="text-lg sm:text-xl font-bold mb-3 text-black">Mission Statement</h2>
@@ -141,7 +141,7 @@ export default function AboutPage() {
                         </p>
                     </div>
                 </section>
-
+ */}
 
 
                 <section className="mb-16">
