@@ -100,7 +100,7 @@ export default function AboutPage() {
 
                 <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                     <div className="bg-purple-400 p-6 rounded-lg lg:col-span-2 flex items-center gap-3">
-                        <h2 className="text-lg sm:text-xl font-bold mb-3 text-gray-100">Mission Statement</h2>
+                        <h2 className="text-lg sm:text-xl font-bold mb-3 text-black">Mission Statement</h2>
                         <p className="text-gray-200 text-sm sm:text-base text-justify">
                             Our mission is to revolutionize the way people connect and collaborate by providing accessible, high-quality tools
                             that empower organizations of all sizes. We are committed to breaking down communication barriers, enabling seamless
@@ -110,7 +110,7 @@ export default function AboutPage() {
                         </p>
                     </div>
                     <div className="bg-purple-800 p-6 rounded-lg lg:col-span-1">
-                        <h2 className="text-lg sm:text-xl font-bold mb-3 text-gray-100">Vision Statement</h2>
+                        <h2 className="text-lg sm:text-xl font-bold mb-3 text-black">Vision Statement</h2>
                         <p className="text-gray-200 text-sm sm:text-base text-justify">
                             We envision a future where geography no longer limits collaboration. Our goal is to provide intuitive, reliable video
                             tools that make virtual interactions feel natural and human. We aim to become a global leader in digital communication,
@@ -121,7 +121,7 @@ export default function AboutPage() {
                     </div>
                     <div className="bg-purple-900 p-6 rounded-lg lg:col-span-1">
                         <h2 className="text-lg sm:text-xl font-bold mb-3 text-black">Core values</h2>
-                        <p className="text-gray-800 text-sm sm:text-base text-justify">
+                        <p className="text-white text-sm sm:text-base text-justify">
                             Our core values are rooted in reliability, innovation, inclusivity, and simplicity. We believe in building dependable
                             systems that users can trust every day. Innovation drives our features and functionality, while inclusivity ensures
                             our tools are accessible to everyone, regardless of background or ability. Simplicity is key to delivering seamless
@@ -130,7 +130,7 @@ export default function AboutPage() {
                         </p>
                     </div>
                     <div className="bg-purple-700 p-6 rounded-lg lg:col-span-2 flex items-center gap-3">
-                        <h2 className="text-lg sm:text-xl font-bold mb-3 text-gray-100">Target market summary</h2>
+                        <h2 className="text-lg sm:text-xl font-bold mb-3 text-black">Target market summary</h2>
                         <p className="text-gray-200 text-sm sm:text-base text-justify">
                             Our platform serves a diverse target market, including distributed teams, educational institutions, healthcare
                             providers, and remote-friendly companies. These organizations rely on secure, high-performance communication tools
