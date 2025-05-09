@@ -20,7 +20,7 @@ export default function HeroSection() {
               </Button>
               <Button
                 variant="outline"
-                className="rounded-full border-purple-500 px-6 py-3 text-purple-400 hover:bg-purple-500/10 transition-colors shadow-lg"
+                className="rounded-full border-purple-500 px-6 py-3 text-purple-400  hover:shadow-purple-500/30 transition-colors shadow-lg"
               >
                 Learn More
               </Button>
