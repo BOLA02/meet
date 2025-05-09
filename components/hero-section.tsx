@@ -13,7 +13,7 @@ export default function HeroSection() {
               Your ultimate platform for <span className="text-purple-400">virtual</span> and{" "}
               <span className="text-purple-400">hybrid events</span>
             </h1>
-            <p className="mb-8 text-lg text-gray-300">Host, Connect, Engage Seamlessly</p>
+            <p className="mb-8 text-lg text-gray-300">Host, Connect, & Engage Seamlessly...</p>
             <div className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
               <Button className="rounded-full bg-purple-500 px-6 py-3 text-dark-600 hover:bg-purple-400 transition-colors shadow-lg hover:shadow-purple-500/30 font-medium">
                 Get Started
