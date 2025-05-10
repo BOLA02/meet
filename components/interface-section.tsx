@@ -27,9 +27,9 @@ export default function InterfaceSection() {
             <div className="grid grid-cols-4 gap-2 transform-style-3d">
               {/* Video grid */}
               {[
-                "/assets/Ellipse 134.png",
-                "/assets/Ellipse 136.png",
-                "/assets/Ellipse 537.png",
+                "/images/black.png",
+                "/images/businesswoman.png",
+                "/images/portait.png",
                 "/assets/Ellipse 536.png",
                 /* ... other images ... */
               ].map((src, i) => (
@@ -45,7 +45,7 @@ export default function InterfaceSection() {
                     src={src || "/placeholder.svg"}
                     alt="Video call participant"
                     width={120}
-                    height={80}
+                    height={30}
                     className="h-full w-full rounded object-cover"
                   />
                 </div>

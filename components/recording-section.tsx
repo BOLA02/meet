@@ -1,8 +1,29 @@
+"use client";
+
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import React from 'react';
+import React, { useRef, useState } from 'react';
 
 export default function RecordingSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const playVideo = async () => {
+    if (videoRef.current) {
+      try {
+        if (videoRef.current.paused) {
+          await videoRef.current.play();
+          setIsPlaying(true);
+        } else {
+          videoRef.current.pause();
+          setIsPlaying(false);
+        }
+      } catch (error) {
+        console.error("Video playback error:", error);
+      }
+    }
+  };
+
   return (
     <section className="bg-dark-500 py-16 md:py-24 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-dark-600 to-dark-500"></div>
@@ -50,11 +71,22 @@ export default function RecordingSection() {
 
         <div className="mx-auto max-w-3xl overflow-hidden rounded-lg glass-card shadow-xl gradient-border glow perspective-[1000px] scroll-animate">
           <div className="relative aspect-video transform-style-3d animate-rotate-x">
-            <Image src="/images/meeting.png" alt="3D Video recording demo" fill className="object-cover" />
+            <video 
+              ref={videoRef}
+              className="w-full h-full object-cover"
+              preload="metadata"
+              playsInline
+            >
+              <source src="/videos/demo.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
             <div className="absolute inset-0 bg-gradient-to-t from-dark-600 to-transparent opacity-50"></div>
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-purple-500/80 text-white shadow-lg hover:bg-purple-400/80  cursor-pointer transform hover:scale-110 transition-transform duration-300 animate-pulse-3d">
-                <div className="h-0 w-0 border-y-8 border-y-transparent border-l-12 border-l-white translate-x-1"></div>
+              <div 
+                onClick={playVideo}
+                className="flex h-16 w-16 items-center justify-center rounded-full bg-purple-500/80 text-white shadow-lg hover:bg-purple-400/80 cursor-pointer transform hover:scale-110 transition-transform duration-300 animate-pulse-3d"
+              >
+                <div className={`${isPlaying ? "h-4 w-4 bg-white" : "h-0 w-0 border-y-8 border-y-transparent border-l-12 border-l-white translate-x-1"}`}></div>
               </div>
             </div>
 

@@ -1,6 +1,10 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import { TiSocialFacebook } from "react-icons/ti";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaLinkedinIn } from "react-icons/fa6";
+
 
 export default function Footer() {
   return (
@@ -71,13 +75,13 @@ export default function Footer() {
             
             <div className="flex items-center ml-4">
               <a href="#" className="mx-1">
-                <img src="/api/placeholder/24/24" alt="LinkedIn" className="h-5 w-5" />
+              <FaLinkedinIn  className="h-5 w-5" />
               </a>
               <a href="#" className="mx-1">
-                <img src="/api/placeholder/24/24" alt="Twitter" className="h-5 w-5" />
+              <FaXTwitter  className="h-5 w-5" />
               </a>
               <a href="#" className="mx-1">
-                <img src="/api/placeholder/24/24" alt="Facebook" className="h-5 w-5" />
+              <TiSocialFacebook  className="h-5 w-5"/>
               </a>
             </div>
           </div>

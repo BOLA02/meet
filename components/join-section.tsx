@@ -8,7 +8,7 @@ export default function JoinSection() {
 
       {/* 3D floating elements */}
       <div className="absolute top-0 left-1/4 w-24 h-24 perspective-[1000px]">
-        <div className="w-full h-full rounded-lg overflow-hidden shadow-lg transform-style-3d animate-rotate-3d">
+        {/* <div className="w-full h-full rounded-lg overflow-hidden shadow-lg transform-style-3d animate-rotate-3d">
           <Image
             src="/images/meeting.png"
             alt="3D Element"
@@ -16,11 +16,11 @@ export default function JoinSection() {
             height={96}
             className="h-full w-full object-cover"
           />
-        </div>
+        </div> */}
       </div>
 
       <div className="absolute bottom-0 right-1/4 w-20 h-20 perspective-[1000px]">
-        <div className="w-full h-full rounded-lg overflow-hidden shadow-lg transform-style-3d animate-rotate-3d animation-delay-1000">
+        {/* <div className="w-full h-full rounded-lg overflow-hidden shadow-lg transform-style-3d animate-rotate-3d animation-delay-1000">
           <Image
             src="/images/meeting 2.png"
             alt="3D Element"
@@ -28,7 +28,7 @@ export default function JoinSection() {
             height={80}
             className="h-full w-full object-cover"
           />
-        </div>
+        </div> */}
       </div>
 
       <div className="container mx-auto px-4 text-center relative z-10">
@@ -60,12 +60,12 @@ export default function JoinSection() {
           </div>
           <div className="perspective-[1000px]">
             <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-dark-600 shadow-lg transform-style-3d animate-rotate-y animation-delay-400">
-              <Image src="/assets/user5.png" alt="User" width={64} height={64} className="h-full w-full object-cover" />
+              <Image src="/images/student.png" alt="User" width={64} height={64} className="h-full w-full object-cover" />
             </div>
           </div>
           <div className="perspective-[1000px]">
             <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-dark-600 shadow-lg transform-style-3d animate-rotate-y animation-delay-600">
-              <Image src="/images/user5.png" alt="User" width={64} height={64} className="h-full w-full object-cover" />
+              <Image src="/images/black.png" alt="User" width={64} height={64} className="h-full w-full object-cover" />
             </div>
           </div>
           <div className="perspective-[1000px]">

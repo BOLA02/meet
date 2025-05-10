@@ -29,15 +29,15 @@ export default function HeroSection() {
           <div className="relative perspective-[1000px] scroll-animate">
             <div className="grid grid-cols-3 gap-3 transform-style-3d">
               {[
-                "/assets/Ellipse 539.png",
+                "/images/student.png",
                 "/assets/Ellipse 567.png",
                 "/assets/Ellipse 538.png",
-                "/assets/Ellipse 539.png",
+                "/images/businesswoman.png",
                 "/assets/Ellipse 557.png",
-                "/assets/Ellipse 564.png",
+               "/images/black.png",
                 "/assets/Ellipse 566.png",
                 "/assets/Ellipse 539.png",
-                "/assets/Ellipse 555.png",
+                "/images/college student.png",,
 
               ].map((src, i) => (
                 <div
@@ -47,7 +47,7 @@ export default function HeroSection() {
                   <Image
                     src={src || "/placeholder.svg"}
                     alt="Video call participant"
-                    width={40}
+                    width={35}
                     height={40}
                     className="h-full w-full rounded-full object-fit"
                   />
