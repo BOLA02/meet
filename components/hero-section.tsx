@@ -13,14 +13,14 @@ export default function HeroSection() {
               Your ultimate platform for <span className="text-purple-400">virtual</span> and{" "}
               <span className="text-purple-400">hybrid events</span>
             </h1>
-            <p className="mb-8 text-lg text-gray-300">Host, Connect, Engage Seamlessly</p>
+            <p className="mb-8 text-lg text-gray-300">Host, Connect, & Engage Seamlessly...</p>
             <div className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
               <Button className="rounded-full bg-purple-500 px-6 py-3 text-dark-600 hover:bg-purple-400 transition-colors shadow-lg hover:shadow-purple-500/30 font-medium">
                 Get Started
               </Button>
               <Button
                 variant="outline"
-                className="rounded-full border-purple-500 px-6 py-3 text-purple-400 hover:bg-purple-500/10 transition-colors shadow-lg"
+                className="rounded-full border-purple-500 px-6 py-3 text-purple-400  hover:shadow-purple-500/30 transition-colors shadow-lg"
               >
                 Learn More
               </Button>
@@ -30,14 +30,15 @@ export default function HeroSection() {
             <div className="grid grid-cols-3 gap-3 transform-style-3d">
               {[
                 "/images/student.png",
+                // "/assets/Ellipse 539.png",
                 "/assets/Ellipse 567.png",
-                "/assets/Ellipse 538.png",
-                "/images/businesswoman.png",
+                // "/assets/Ellipse 538.png",
+                // "/assets/Ellipse 539.png",
                 "/assets/Ellipse 557.png",
                "/images/black.png",
                 "/assets/Ellipse 566.png",
-                "/assets/Ellipse 539.png",
-                "/images/college student.png",,
+                // "/assets/Ellipse 539.png",
+                "/assets/Ellipse 555.png",
 
               ].map((src, i) => (
                 <div
