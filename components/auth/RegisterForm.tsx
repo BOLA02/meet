@@ -1,5 +1,5 @@
 "use client"
-
+import { useRouter } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
 import { Eye } from "lucide-react"
@@ -12,6 +12,7 @@ export default function RegisterForm() {
     const [password, setPassword] = useState("")
     const [emailError, setEmailError] = useState("")
     const [passwordError, setPasswordError] = useState("")
+    const router = useRouter()
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -63,13 +64,18 @@ export default function RegisterForm() {
         // If valid, proceed with form submission (e.g., send data to server)
         if (isValid) {
             console.log("Form submitted", { email, password })
+
+            setTimeout(() => {
+                // After successful "registration", route to login page
+                router.push("/login")
+            }, 1000)
         }
     }
 
     return (
         <div className="flex h-screen bg-dark-600/80 text-gray-100">
             {/* Left side - Sign Up Form */}
-            <div className="w-full md:w-1/2 flex flex-col justify-center px-8 md:px-16 lg:px-24">
+            <div className="w-full lg:w-1/2 flex flex-col justify-center px-8 md:px-16 lg:px-24">
                 <motion.div className="max-w-md mx-auto w-full" variants={containerVariants} initial="hidden" animate="visible">
                     <motion.h1 variants={itemVariants} className="text-2xl text-center font-bold mb-1 text-white">
                         Sign Up
@@ -201,7 +207,7 @@ export default function RegisterForm() {
             </div>
 
             {/* Right side - Image with animated overlay */}
-            <div className="hidden md:block md:w-1/2 relative overflow-hidden">
+            <div className="hidden lg:block md:w-1/2 relative overflow-hidden">
                 <div className="absolute inset-0 bg-black/30 z-10"></div>
                 <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-purple-900/30 to-purple-900/30 z-10"
