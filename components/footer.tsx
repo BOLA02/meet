@@ -12,8 +12,8 @@ export default function Footer() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Column 1 - Newsletter */}
           <div>
-            <h2 className="text-xl font-bold text-purple-600 mb-4">Meetio</h2>
-            <p className="text-sm text-white mb-4">Keep in touch with Meetio News and updates</p>
+            <h2 className="text-xl font-bold text-purple-600 mb-4">Meet</h2>
+            <p className="text-sm text-white mb-4">Keep in touch with Meet News and updates</p>
             
             <div className="flex">
               <input 
@@ -32,12 +32,12 @@ export default function Footer() {
             <h3 className="font-bold mb-4">About</h3>
             <ul className="space-y-2 text-sm text-gray-600">
               <li><a href="#" className="text-white  hover:text-purple-500">Our Team</a></li>
-              <li><a href="#" className="text-white   hover:text-purple-500">About Meetio</a></li>
+              <li><a href="#" className="text-white   hover:text-purple-500">About Meet</a></li>
               <li><a href="#" className="text-white   hover:text-purple-500">Careers</a></li>
-              <li><a href="#" className="text-white   hover:text-purple-500">Privacy at Meetio</a></li>
+              <li><a href="#" className="text-white   hover:text-purple-500">Privacy at Meet</a></li>
               <li><a href="#" className="text-white   hover:text-purple-500">Investors</a></li>
               <li><a href="#" className="text-white   hover:text-purple-500">Diversity & Inclusion</a></li>
-              <li><a href="#" className="text-white   hover:text-purple-500">Careers at Meetio</a></li>
+              <li><a href="#" className="text-white   hover:text-purple-500">Careers at Meet</a></li>
             </ul>
           </div>
 
@@ -66,7 +66,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-gray-200 max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
-          <p className="text-xs  text-purple-400">© 2023 Meetio. All rights reserved.</p>
+          <p className="text-xs  text-purple-400">© 2023 Meet. All rights reserved.</p>
           
           <div className="flex items-center mt-4 md:mt-0">
             <a href="#" className="text-xs text-white   hover:text-purple-500 mx-2">Terms & Conditions</a>

@@ -82,7 +82,7 @@ export default function PlatformSection() {
             {/* Additional 3D images */}
             <div className="aspect-video rounded-lg glass-card overflow-hidden shadow-lg animate-rotate-x animation-delay-900">
               <Image
-                src="/images/user5.png"
+                src="/images/virtual.png"
                 alt="3D AI Features"
                 width={200}
                 height={120}
@@ -93,7 +93,7 @@ export default function PlatformSection() {
             </div>
             <div className="aspect-video rounded-lg glass-card overflow-hidden shadow-lg animate-rotate-x animation-delay-1200">
               <Image
-                src="/images/event4.png"
+                src="/images/security.png"
                 alt="3D Security"
                 width={200}
                 height={120}

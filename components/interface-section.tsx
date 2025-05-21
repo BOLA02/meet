@@ -30,7 +30,7 @@ export default function InterfaceSection() {
                 "/images/black.png",
                 "/images/businesswoman.png",
                 "/images/portait.png",
-                "/assets/Ellipse 536.png",
+                "/images/business.png",
                 /* ... other images ... */
               ].map((src, i) => (
                 <div
@@ -45,7 +45,7 @@ export default function InterfaceSection() {
                     src={src || "/placeholder.svg"}
                     alt="Video call participant"
                     width={120}
-                    height={30}
+                    height={50}
                     className="h-full w-full rounded object-cover"
                   />
                 </div>

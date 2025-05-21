@@ -29,16 +29,12 @@ export default function HeroSection() {
           <div className="relative perspective-[1000px] scroll-animate">
             <div className="grid grid-cols-3 gap-3 transform-style-3d">
               {[
-                "/images/student.png",
-                // "/assets/Ellipse 539.png",
                 "/assets/Ellipse 567.png",
-                // "/assets/Ellipse 538.png",
-                // "/assets/Ellipse 539.png",
-                "/assets/Ellipse 557.png",
-               "/images/black.png",
-                "/assets/Ellipse 566.png",
-                // "/assets/Ellipse 539.png",
+                "/assets/Ellipse 554.png",
                 "/assets/Ellipse 555.png",
+                "/assets/Ellipse 564.png",
+                 "/assets/user3.png",
+                "/assets/Ellipse 566.png",
 
               ].map((src, i) => (
                 <div

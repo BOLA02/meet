@@ -5,7 +5,7 @@ export default function EventsSection() {
   const events = [
     {
       title: "Corporate-wide team building event",
-      image: "/images/meet.png",
+      image: "/images/wideteam.png",
       attendees: 120,
       date: "Nov 15, 2023",
       location: "Virtual",
@@ -26,21 +26,21 @@ export default function EventsSection() {
     },
     {
       title: "Product launch webinar",
-      image: "/images/meeting 2.png",
+      image: "/images/delegation.png",
       attendees: 250,
       date: "Dec 5, 2023",
       location: "Virtual",
     },
     {
       title: "Annual company conference",
-      image: "/images/team.png",
+      image: "/images/Diverse Teams.png",
       attendees: 500,
       date: "Dec 15, 2023",
       location: "Hybrid",
     },
     {
       title: "UX/UI design workshop",
-      image: "/images/event4.png",
+      image: "/images/uiux.png",
       attendees: 45,
       date: "Nov 28, 2023",
       location: "Virtual",
