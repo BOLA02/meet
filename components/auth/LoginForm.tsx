@@ -1,5 +1,5 @@
 "use client"
-
+import { useRouter } from "next/navigation"
 import { useState } from "react"
 import Link from "next/link"
 import { useForm } from "react-hook-form"
@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { Eye, EyeOff } from "lucide-react"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Loader2 } from "lucide-react"
 
@@ -21,6 +22,8 @@ type FormValues = z.infer<typeof formSchema>
 
 export default function LoginForm() {
     const [isLoading, setIsLoading] = useState(false)
+    const [showPassword, setShowPassword] = useState(false)
+    const router = useRouter()
 
     const {
         register,
@@ -43,7 +46,16 @@ export default function LoginForm() {
             console.log("Login data:", data)
             await new Promise((resolve) => setTimeout(resolve, 1500))
 
-            // Handle successful login (redirect, etc.)
+            // Simple hardcoded check
+            if (data.email === "test@example.com" && data.password === "password123") {
+                // Save login state in localStorage
+                localStorage.setItem("loggedIn", "true")
+                alert("Login successful!")
+                // You can redirect here if needed, e.g. router.push("/dashboard")
+            } else {
+                alert("Invalid email or password")
+            }
+            router.push("/welcome")
         } catch (error) {
             console.error("Login error:", error)
         } finally {
@@ -82,13 +94,23 @@ export default function LoginForm() {
                     <label htmlFor="password" className="text-sm font-medium">
                         Password
                     </label>
-                    <Input
-                        id="password"
-                        type="password"
-                        placeholder="Enter password"
-                        {...register("password")}
-                        className={`w-full px-3 py-2 border border-gray-700 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500 text-white bg-transparent ${errors.password ? "border-red-500" : ""}`}
-                    />
+                    <div className="relative">
+                        <Input
+                            id="password"
+                            type={showPassword ? "text" : "password"}
+                            placeholder="Enter password"
+                            {...register("password")}
+                            className={`w-full px-3 py-2 border border-gray-700 rounded-md pr-10 focus:outline-none focus:ring-1 focus:ring-purple-500 text-white bg-transparent ${errors.password ? "border-red-500" : ""}`}
+                        />
+                        <button
+                            type="button"
+                            onClick={() => setShowPassword((prev) => !prev)}
+                            className="absolute right-3 top-2.5 text-gray-400 hover:text-white"
+                            tabIndex={-1}
+                        >
+                            {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                        </button>
+                    </div>
                     {errors.password && <p className="text-xs text-red-500">{errors.password.message}</p>}
                     <div className="text-right">
                         <Link href="/forgot-password" className="text-xs text-purple-600 hover:underline">
@@ -133,7 +155,7 @@ export default function LoginForm() {
             <div className="space-y-3">
                 <button
                     type="button"
-                    className="flex w-full items-center justify-center gap-3 rounded-md border border-gray-300px-3 py-2 text-sm font-medium hover:bg-gray-50"
+                    className="flex w-full items-center justify-center gap-3 rounded-md border border-gray-300px-3 py-2 text-sm font-medium hover:bg-gray-800"
                 >
                     <svg viewBox="0 0 24 24" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
                         <g transform="matrix(1, 0, 0, 1, 27.009001, -39.238998)">
@@ -160,7 +182,7 @@ export default function LoginForm() {
 
                 <button
                     type="button"
-                    className="flex w-full items-center justify-center gap-3 rounded-md border border-gray-300 px-3 py-2 text-sm font-medium hover:bg-gray-50"
+                    className="flex w-full items-center justify-center gap-3 rounded-md border border-gray-300 px-3 py-2 text-sm font-medium hover:bg-gray-800"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
                         <path
@@ -169,19 +191,6 @@ export default function LoginForm() {
                         />
                     </svg>
                     Continue with Facebook
-                </button>
-
-                <button
-                    type="button"
-                    className="flex w-full items-center justify-center gap-3 rounded-md border border-gray-300 px-3 py-2 text-sm font-medium hover:bg-gray-50"
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                        <path
-                            d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z"
-                            fill="#000000"
-                        />
-                    </svg>
-                    Continue with Apple
                 </button>
             </div>
 

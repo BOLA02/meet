@@ -1,9 +1,9 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { TiSocialFacebook } from "react-icons/ti";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaLinkedinIn } from "react-icons/fa6";
+// import { TiSocialFacebook } from "react-icons/ti";
+// import { FaXTwitter } from "react-icons/fa6";
+// import { FaLinkedinIn } from "react-icons/fa6";
 
 
 export default function Footer() {
@@ -73,7 +73,7 @@ export default function Footer() {
             <a href="#" className="text-xs text-white   hover:text-purple-500 mx-2">Privacy Policy</a>
             <a href="#" className="text-xs text-white   hover:text-purple-500 mx-2">Legal</a>
             
-            <div className="flex items-center ml-4">
+            {/* <div className="flex items-center ml-4">
               <a href="#" className="mx-1">
               <FaLinkedinIn  className="h-5 w-5" />
               </a>
@@ -83,7 +83,7 @@ export default function Footer() {
               <a href="#" className="mx-1">
               <TiSocialFacebook  className="h-5 w-5"/>
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </footer>
