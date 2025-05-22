@@ -1,3 +1,4 @@
+import { withNextVideo } from "next-video/process";
 let userConfig = undefined
 try {
   // try to import ESM first
@@ -78,6 +79,4 @@ if (userConfig) {
   }
 }
 
-export default nextConfig
-
-
+export default withNextVideo(nextConfig);
