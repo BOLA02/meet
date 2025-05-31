@@ -2,12 +2,12 @@
 
 Meet is a modern web application for online meetings, collaboration, and video conferencing. Built with Next.js, TypeScript, and Tailwind CSS, it provides a seamless and interactive user experience.
 
-## Features
+<!-- ## Features
 - User authentication (login, register, forgot password)
 - Video conferencing and collaboration tools
 - Responsive and accessible UI
 - Modular component structure
-- Modern design with Tailwind CSS
+- Modern design with Tailwind CSS -->
 
 ## Getting Started
 
