@@ -245,7 +245,7 @@ export default function RegisterForm() {
                         }}
                         transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
                     >
-                        Meetio
+                        Meet
                     </motion.h2>
                 </motion.div>
             </div>

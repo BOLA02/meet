@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input"
 import { Eye, EyeOff } from "lucide-react"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Loader2 } from "lucide-react"
+import { loginUser } from "@/lib/authService" // Import the auth service
 
 // Define form schema with validation rules
 const formSchema = z.object({
@@ -23,6 +24,7 @@ type FormValues = z.infer<typeof formSchema>
 export default function LoginForm() {
     const [isLoading, setIsLoading] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
+    const [error, setError] = useState<string | null>(null) // Add error state
     const router = useRouter()
 
     const {
@@ -39,36 +41,52 @@ export default function LoginForm() {
     })
 
     const onSubmit = async (data: FormValues) => {
-        setIsLoading(true)
+    setIsLoading(true)
+    setError(null)
 
-        try {
-            // Simulate API call
-            console.log("Login data:", data)
-            await new Promise((resolve) => setTimeout(resolve, 1500))
-
-            // Simple hardcoded check
-            if (data.email === "test@example.com" && data.password === "password123") {
-                // Save login state in localStorage
-                localStorage.setItem("loggedIn", "true")
-                alert("Login successful!")
-                // You can redirect here if needed, e.g. router.push("/dashboard")
-            } else {
-                alert("Invalid email or password")
+    try {
+        // Use your existing loginUser function
+        const response = await loginUser(data.email, data.password)
+        
+        if (response.token) {
+            console.log("Login successful:", response)
+            
+            // Configuration - Main app running on localhost
+            const MAIN_APP_URL = "http://localhost:3000" // Update port if different
+            
+            // Build redirect URL with auth data as query parameters
+            const redirectUrl = new URL(`${MAIN_APP_URL}/auth/callback`)
+            redirectUrl.searchParams.append('token', response.token)
+            redirectUrl.searchParams.append('userId', response.userId)
+            redirectUrl.searchParams.append('role', response.role)
+            
+            // Optional: Add stay signed in flag
+            if (data.staySignedIn) {
+                redirectUrl.searchParams.append('staySignedIn', 'true')
             }
-            router.push("/welcome")
-        } catch (error) {
-            console.error("Login error:", error)
-        } finally {
-            setIsLoading(false)
+            
+            // Optional: Add return URL for after login
+            redirectUrl.searchParams.append('returnUrl', '/dashboard')
+            
+            console.log("Redirecting to:", redirectUrl.toString())
+            
+            // Redirect to main application
+            window.location.href = redirectUrl.toString()
         }
+    } catch (error) {
+        console.error("Login error:", error)
+        setError(error instanceof Error ? error.message : "Login failed. Please try again.")
+    } finally {
+        setIsLoading(false)
     }
+}
 
     return (
         <div className="w-full max-w-md space-y-6">
             <div className="space-y-2 text-center">
                 <h1 className="text-2xl font-semibold tracking-tight">Log in to your Account</h1>
                 <p className="text-sm text-gray-200">
-                    New to Meetio?{" "}
+                    New to Meet?{" "}
                     <Link href="/register" className="text-purple-600 hover:underline">
                         Create an account
                     </Link>
