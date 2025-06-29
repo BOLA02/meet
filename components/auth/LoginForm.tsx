@@ -7,15 +7,15 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Eye, EyeOff } from "lucide-react"
+import { Eye, EyeOff, AlertCircle, CheckCircle } from "lucide-react"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Loader2 } from "lucide-react"
-import { loginUser } from "@/lib/authService" // Import the auth service
+import { loginUser } from "@/lib/authService"
 
 // Define form schema with validation rules
 const formSchema = z.object({
     email: z.string().min(1, { message: "Email is required" }).email({ message: "Please enter a valid email address" }),
-    password: z.string().min(1, { message: "Password is required" }),
+    password: z.string().min(1, { message: "Password is required" }).min(6, { message: "Password must be at least 6 characters" }),
     staySignedIn: z.boolean().optional(),
 })
 
@@ -24,13 +24,15 @@ type FormValues = z.infer<typeof formSchema>
 export default function LoginForm() {
     const [isLoading, setIsLoading] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
-    const [error, setError] = useState<string | null>(null) // Add error state
+    const [error, setError] = useState<string | null>(null)
+    const [success, setSuccess] = useState<string | null>(null)
     const router = useRouter()
 
     const {
         register,
         handleSubmit,
         formState: { errors },
+        reset,
     } = useForm<FormValues>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -41,141 +43,201 @@ export default function LoginForm() {
     })
 
     const onSubmit = async (data: FormValues) => {
-    setIsLoading(true)
-    setError(null)
+        setIsLoading(true)
+        setError(null)
+        setSuccess(null)
 
-    try {
-        // Use your existing loginUser function
-        const response = await loginUser(data.email, data.password)
-        
-        if (response.token) {
-            console.log("Login successful:", response)
+        try {
+            // Simulate API call for demo purposes
+            await new Promise(resolve => setTimeout(resolve, 1500))
             
-            // Configuration - Main app running on localhost
-            const MAIN_APP_URL = "http://localhost:3000" // Update port if different
+            // Use your existing loginUser function
+            const response = await loginUser(data.email, data.password)
             
-            // Build redirect URL with auth data as query parameters
-            const redirectUrl = new URL(`${MAIN_APP_URL}/auth/callback`)
-            redirectUrl.searchParams.append('token', response.token)
-            redirectUrl.searchParams.append('userId', response.userId)
-            redirectUrl.searchParams.append('role', response.role)
-            
-            // Optional: Add stay signed in flag
-            if (data.staySignedIn) {
-                redirectUrl.searchParams.append('staySignedIn', 'true')
+            if (response.token) {
+                setSuccess("Login successful! Redirecting...")
+                console.log("Login successful:", response)
+                
+                // Configuration - Main app running on localhost
+                const MAIN_APP_URL = "http://localhost:3000"
+                
+                // Build redirect URL with auth data as query parameters
+                const redirectUrl = new URL(`${MAIN_APP_URL}/auth/callback`)
+                redirectUrl.searchParams.append('token', response.token)
+                redirectUrl.searchParams.append('userId', response.userId)
+                redirectUrl.searchParams.append('role', response.role)
+                
+                // Optional: Add stay signed in flag
+                if (data.staySignedIn) {
+                    redirectUrl.searchParams.append('staySignedIn', 'true')
+                }
+                
+                // Optional: Add return URL for after login
+                redirectUrl.searchParams.append('returnUrl', '/dashboard')
+                
+                console.log("Redirecting to:", redirectUrl.toString())
+                
+                // Redirect to main application after a short delay
+                setTimeout(() => {
+                    window.location.href = redirectUrl.toString()
+                }, 1000)
             }
-            
-            // Optional: Add return URL for after login
-            redirectUrl.searchParams.append('returnUrl', '/dashboard')
-            
-            console.log("Redirecting to:", redirectUrl.toString())
-            
-            // Redirect to main application
-            window.location.href = redirectUrl.toString()
+        } catch (error) {
+            console.error("Login error:", error)
+            setError(error instanceof Error ? error.message : "Login failed. Please check your credentials and try again.")
+        } finally {
+            setIsLoading(false)
         }
-    } catch (error) {
-        console.error("Login error:", error)
-        setError(error instanceof Error ? error.message : "Login failed. Please try again.")
-    } finally {
-        setIsLoading(false)
     }
-}
 
     return (
-        <div className="w-full max-w-md space-y-6">
-            <div className="space-y-2 text-center">
-                <h1 className="text-2xl font-semibold tracking-tight">Log in to your Account</h1>
-                <p className="text-sm text-gray-200">
+        <div className="w-full max-w-md space-y-8">
+            <div className="space-y-3 text-center">
+                <h1 className="text-3xl font-bold tracking-tight text-white">Welcome back</h1>
+                <p className="text-gray-300">
                     New to Meet?{" "}
-                    <Link href="/register" className="text-purple-600 hover:underline">
+                    <Link href="/register" className="text-purple-400 hover:text-purple-300 transition-colors duration-200 font-medium">
                         Create an account
                     </Link>
                 </p>
             </div>
 
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+            {/* Success/Error Messages */}
+            {success && (
+                <div className="flex items-center gap-3 p-4 bg-green-500/10 border border-green-500/20 rounded-lg">
+                    <CheckCircle className="h-5 w-5 text-green-400" />
+                    <p className="text-sm text-green-400">{success}</p>
+                </div>
+            )}
+
+            {error && (
+                <div className="flex items-center gap-3 p-4 bg-red-500/10 border border-red-500/20 rounded-lg">
+                    <AlertCircle className="h-5 w-5 text-red-400" />
+                    <p className="text-sm text-red-400">{error}</p>
+                </div>
+            )}
+
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-medium">
-                        Email
+                    <label htmlFor="email" className="text-sm font-medium text-gray-200">
+                        Email address
                     </label>
                     <Input
                         id="email"
                         type="email"
-                        placeholder="Enter email"
+                        placeholder="Enter your email"
                         {...register("email")}
-                        className={`w-full px-3 py-2 border  border-gray-700 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-400 text-white bg-transparent ${errors.email ? "border-red-500" : ""}`}
+                        className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 text-white bg-dark-500/50 placeholder:text-gray-400 transition-all duration-200 ${
+                            errors.email ? "border-red-500 focus:ring-red-400" : "border-gray-600 hover:border-gray-500"
+                        }`}
+                        disabled={isLoading}
                     />
-                    {errors.email && <p className="text-xs text-red-500">{errors.email.message}</p>}
+                    {errors.email && (
+                        <p className="text-sm text-red-400 flex items-center gap-1">
+                            <AlertCircle className="h-4 w-4" />
+                            {errors.email.message}
+                        </p>
+                    )}
                 </div>
 
                 <div className="space-y-2">
-                    <label htmlFor="password" className="text-sm font-medium">
+                    <label htmlFor="password" className="text-sm font-medium text-gray-200">
                         Password
                     </label>
                     <div className="relative">
                         <Input
                             id="password"
                             type={showPassword ? "text" : "password"}
-                            placeholder="Enter password"
+                            placeholder="Enter your password"
                             {...register("password")}
-                            className={`w-full px-3 py-2 border border-gray-700 rounded-md pr-10 focus:outline-none focus:ring-1 focus:ring-purple-500 text-white bg-transparent ${errors.password ? "border-red-500" : ""}`}
+                            className={`w-full px-4 py-3 border rounded-lg pr-12 focus:outline-none focus:ring-2 focus:ring-purple-400 text-white bg-dark-500/50 placeholder:text-gray-400 transition-all duration-200 ${
+                                errors.password ? "border-red-500 focus:ring-red-400" : "border-gray-600 hover:border-gray-500"
+                            }`}
+                            disabled={isLoading}
                         />
                         <button
                             type="button"
                             onClick={() => setShowPassword((prev) => !prev)}
-                            className="absolute right-3 top-2.5 text-gray-400 hover:text-white"
+                            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors duration-200 p-1 rounded"
                             tabIndex={-1}
+                            disabled={isLoading}
                         >
                             {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                         </button>
                     </div>
-                    {errors.password && <p className="text-xs text-red-500">{errors.password.message}</p>}
+                    {errors.password && (
+                        <p className="text-sm text-red-400 flex items-center gap-1">
+                            <AlertCircle className="h-4 w-4" />
+                            {errors.password.message}
+                        </p>
+                    )}
                     <div className="text-right">
-                        <Link href="/forgot-password" className="text-xs text-purple-600 hover:underline">
+                        <Link 
+                            href="/forgot-password" 
+                            className="text-sm text-purple-400 hover:text-purple-300 transition-colors duration-200"
+                        >
                             Forgot password?
                         </Link>
                     </div>
                 </div>
 
-                <Button type="submit" className="w-full bg-purple-600 hover:bg-purple-700" disabled={isLoading}>
+                <div className="flex items-center space-x-2">
+                    <Checkbox
+                        id="staySignedIn"
+                        {...register("staySignedIn")}
+                        disabled={isLoading}
+                    />
+                    <label
+                        htmlFor="staySignedIn"
+                        className="text-sm text-gray-300 cursor-pointer"
+                    >
+                        Keep me signed in
+                    </label>
+                </div>
+
+                <Button 
+                    type="submit" 
+                    className="w-full bg-purple-500 hover:bg-purple-600 text-white py-3 px-4 rounded-lg font-medium transition-all duration-200 shadow-lg hover:shadow-purple-500/25" 
+                    disabled={isLoading}
+                >
                     {isLoading ? (
                         <>
                             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                            Logging in...
+                            Signing in...
                         </>
                     ) : (
-                        "Log In"
+                        "Sign in to your account"
                     )}
                 </Button>
 
-                <div className="text-xs text-center text-gray-500">
-                    By logging in, you agree to Meetio's{" "}
-                    <Link href="/terms" className="text-purple-600 hover:underline">
+                <div className="text-xs text-center text-gray-400">
+                    By signing in, you agree to Meet's{" "}
+                    <Link href="/terms" className="text-purple-400 hover:text-purple-300 transition-colors duration-200">
                         Terms of Service
                     </Link>{" "}
                     and{" "}
-                    <Link href="/privacy" className="text-purple-600 hover:underline">
-                        Privacy Statement
+                    <Link href="/privacy" className="text-purple-400 hover:text-purple-300 transition-colors duration-200">
+                        Privacy Policy
                     </Link>
                 </div>
             </form>
 
-
             <div className="relative">
                 <div className="absolute inset-0 flex items-center">
-                    <span className="w-full border-t border-gray-300" />
+                    <span className="w-full border-t border-gray-600" />
                 </div>
-                <div className="relative flex justify-center text-xs ">
-                    <span className="bg-dark-600 rounded-full px-2 text-gray-500">or</span>
+                <div className="relative flex justify-center text-xs">
+                    <span className="bg-dark-600 px-4 text-gray-400">or continue with</span>
                 </div>
             </div>
 
             <div className="space-y-3">
                 <button
                     type="button"
-                    className="flex w-full items-center justify-center gap-3 rounded-md border border-gray-300px-3 py-2 text-sm font-medium hover:bg-gray-800"
+                    className="flex w-full items-center justify-center gap-3 rounded-lg border border-gray-600 bg-dark-500/50 px-4 py-3 text-sm font-medium text-gray-300 hover:bg-dark-500 hover:border-gray-500 transition-all duration-200"
+                    disabled={isLoading}
                 >
-                    <svg viewBox="0 0 24 24" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
                         <g transform="matrix(1, 0, 0, 1, 27.009001, -39.238998)">
                             <path
                                 fill="#4285F4"
@@ -197,29 +259,6 @@ export default function LoginForm() {
                     </svg>
                     Continue with Google
                 </button>
-
-                <button
-                    type="button"
-                    className="flex w-full items-center justify-center gap-3 rounded-md border border-gray-300 px-3 py-2 text-sm font-medium hover:bg-gray-800"
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                        <path
-                            fill="#1877F2"
-                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
-                        />
-                    </svg>
-                    Continue with Facebook
-                </button>
-            </div>
-
-            <div className="flex justify-center items-center space-x-2">
-                <Checkbox id="staySignedIn" {...register("staySignedIn")} />
-                <label
-                    htmlFor="staySignedIn"
-                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                >
-                    Stay signed in
-                </label>
             </div>
         </div>
     )

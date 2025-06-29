@@ -1,12 +1,10 @@
 import PricingSection from '@/components/pricing/PricingSection'
 import React from 'react'
 
-const pages:React.FC =() => {
+export default function PricingPage() {
     return (
-        <div className='px-12 min-h-screen'>
+        <div className='min-h-screen bg-dark-600'>
             <PricingSection />
         </div>
     )
 }
-
-export default pages

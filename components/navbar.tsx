@@ -14,30 +14,44 @@ export default function Navbar() {
         setDropdownOpen(dropdownOpen === menu ? null : menu);
     };
 
+    // Close mobile menu when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (menuOpen && !(event.target as Element).closest('.mobile-menu')) {
+                setMenuOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, [menuOpen]);
+
     return (
         <header className="border-b border-dark-300/20 bg-dark-600/80 backdrop-blur-md sticky top-0 z-50">
-            <div className="mx-auto flex h-16 items-center justify-between px-12">
+            <div className="mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-12">
                 <div className="flex items-center">
-                    <Link href="/" className="mr-6 flex items-center">
-                        <span className="text-xl font-bold text-purple-400">Meet</span>
+                    <Link href="/" className="mr-6 flex items-center group">
+                        <span className="text-xl font-bold text-purple-400 group-hover:text-purple-300 transition-colors">Meet</span>
                     </Link>
-
 
                     {/* Desktop Navigation */}
                     <ul className="hidden lg:flex list-none justify-between space-x-8 items-center">
                         <li className="relative group">
-                            <Link href="/" className="text-sm text-gray-300 hover:text-purple-400 transition-colors">Products</Link>
+                            <Link href="/" className="text-sm text-gray-300 hover:text-purple-400 transition-colors duration-200 flex items-center">
+                                Products
+                                <ChevronDown className="ml-1 h-3 w-3 opacity-50 group-hover:opacity-100 transition-opacity" />
+                            </Link>
                             {/* Dropdown */}
-                            <div className="absolute left-0 top-12 mt-1 w-[750px] bg-dark-500 shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                                <div className="grid grid-cols-2 gap-1 p-4">
+                            <div className="absolute left-0 top-12 mt-1 w-[750px] bg-dark-500/95 backdrop-blur-md shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-dark-300/20">
+                                <div className="grid grid-cols-2 gap-1 p-6">
                                     {products.map((product) => (
-                                        <div key={product.id} className="flex flex-col">
-                                            <h3 className="text-lg text-gray-300 transition-colors">{product.title}</h3>
-                                            <span className='border-b border-gray-300 mt-1 w-[300px]'></span>
-                                            <ul className="mt-1 flex flex-col gap-1 mb-6">
+                                        <div key={product.id} className="flex flex-col group/item">
+                                            <h3 className="text-lg text-gray-300 group-hover/item:text-white transition-colors duration-200">{product.title}</h3>
+                                            <span className='border-b border-gray-300/30 mt-2 w-full'></span>
+                                            <ul className="mt-3 flex flex-col gap-2 mb-6">
                                                 {product.links.map((item) => (
-                                                    <li key={item.link} className="flex items-center text-md gap-1 hover:text-white cursor-pointer text-purple-400">
-                                                        <Check className='text-white  transition-colors' />
+                                                    <li key={item.link} className="flex items-center text-sm gap-2 hover:text-white cursor-pointer text-purple-400 group-hover/item:text-purple-300 transition-colors duration-200">
+                                                        <Check className='text-white/70 group-hover/item:text-white transition-colors duration-200' />
                                                         {item.link}
                                                     </li>
                                                 ))}
@@ -48,19 +62,21 @@ export default function Navbar() {
                             </div>
                         </li>
                         <li className="relative group">
-                            <Link href="/" className="text-sm text-gray-300 hover:text-purple-400 transition-colors">Solutions</Link>
+                            <Link href="/" className="text-sm text-gray-300 hover:text-purple-400 transition-colors duration-200 flex items-center">
+                                Solutions
+                                <ChevronDown className="ml-1 h-3 w-3 opacity-50 group-hover:opacity-100 transition-opacity" />
+                            </Link>
                             {/* Dropdown */}
-                            <div className="absolute left-0 top-12 mt-1 w-[900px] bg-dark-500 shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                                <div className="grid grid-cols-2 gap-1 p-4">
+                            <div className="absolute left-0 top-12 mt-1 w-[900px] bg-dark-500/95 backdrop-blur-md shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-dark-300/20">
+                                <div className="grid grid-cols-2 gap-1 p-6">
                                     {solutions.map((solution) => (
-                                        <div key={solution.id} className="flex flex-col">
-                                            <h3 className="text-lg text-gray-300 transition-colors">{solution.title}</h3>
-                                            <span className='border-b border-gray-300 mt-1 w-[300px]'></span>
-
-                                            <ul className="mt-1 flex flex-col gap-1 mb-6">
+                                        <div key={solution.id} className="flex flex-col group/item">
+                                            <h3 className="text-lg text-gray-300 group-hover/item:text-white transition-colors duration-200">{solution.title}</h3>
+                                            <span className='border-b border-gray-300/30 mt-2 w-full'></span>
+                                            <ul className="mt-3 flex flex-col gap-2 mb-6">
                                                 {solution.links.map((item) => (
-                                                    <li key={item.link} className="flex items-center text-purple-400 hover:text-white gap-1 cursor-pointer">
-                                                        <Check className='text-gray-300 transition-colors' />
+                                                    <li key={item.link} className="flex items-center text-sm gap-2 text-purple-400 hover:text-white cursor-pointer group-hover/item:text-purple-300 transition-colors duration-200">
+                                                        <Check className='text-gray-300/70 group-hover/item:text-white transition-colors duration-200' />
                                                         {item.link}
                                                     </li>
                                                 ))}
@@ -70,113 +86,151 @@ export default function Navbar() {
                                 </div>
                             </div>
                         </li>
-                        <li><Link href="/about" className="text-sm text-gray-300 hover:text-purple-400 transition-colors">About Us</Link></li>
-                        <li><Link href="/contact" className="text-sm text-gray-300 hover:text-purple-400 transition-colors">Contact</Link></li>
-                        <li><Link href="/pricing" className="text-sm text-gray-300 hover:text-purple-400 transition-colors">Pricing</Link></li>
+                        <li><Link href="/about" className="text-sm text-gray-300 hover:text-purple-400 transition-colors duration-200">About Us</Link></li>
+                        <li><Link href="/contact" className="text-sm text-gray-300 hover:text-purple-400 transition-colors duration-200">Contact</Link></li>
+                        <li><Link href="/pricing" className="text-sm text-gray-300 hover:text-purple-400 transition-colors duration-200">Pricing</Link></li>
                     </ul>
                 </div>
 
-                <div className="hidden lg:flex items-center space-x-8">
+                <div className="hidden lg:flex items-center space-x-6">
                     <Link
                         href="/login"
-                        className="text-sm font-medium text-gray-300 hover:text-purple-400 transition-colors"
+                        className="text-sm font-medium text-gray-300 hover:text-purple-400 transition-colors duration-200"
                     >
                         Log in
                     </Link>
                     
                     <Link href='/register'>
-                    <Button className="rounded-full bg-purple-500 px-4 py-2 text-dark-600 hover:bg-purple-400 transition-colors shadow-md hover:shadow-purple-500/20">
-                        Sign Up For Free
-                                </Button>
+                        <Button className="rounded-full bg-purple-500 px-6 py-2 text-dark-600 hover:bg-purple-400 transition-all duration-200 shadow-lg hover:shadow-purple-500/30 font-medium">
+                            Sign Up For Free
+                        </Button>
                     </Link>
                 </div>
 
                 {/* Mobile Menu Button */}
                 <div className="lg:hidden flex items-center">
-                    <button onClick={() => setMenuOpen(!menuOpen)} className="text-[40px] text-white cursor-pointer">
-                        {menuOpen ? <X /> : <Menu />}
+                    <button 
+                        onClick={() => setMenuOpen(!menuOpen)} 
+                        className="text-white hover:text-purple-400 transition-colors duration-200 p-2 rounded-lg hover:bg-dark-500/50"
+                        aria-label="Toggle mobile menu"
+                    >
+                        {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                     </button>
                 </div>
             </div>
 
             {/* Mobile Menu */}
             {menuOpen && (
-                <div className="absolute top-16 right-0 w-full h-screen bg-dark-600 z-40 p-6 lg:hidden">
-                    <ul className="flex flex-col gap-4">
-                        <li>
-                            <button onClick={() => toggleDropdown("products")} className="flex cursor-pointer text-white hover:text-purple-400 justify-between w-full text-left text-lg">
-                                Products
-                                <span className="cursor-pointer">{dropdownOpen === "products" ? <ChevronUp /> : <ChevronDown />}</span>
-                            </button>
-                            {dropdownOpen === "products" && (
-                                <div className="mt-1 p-4 bg-gray-950 rounded-lg overflow-scroll">
-                                    {products.map((product) => (
-                                        <div key={product.id} className="flex flex-col">
-                                            <h3 className="text-lg text-gray-300 hover:text-purple-400 transition-colors">{product.title}</h3>
-                                            <span className='border-b border-gray-100 mt-1 w-[300px]'></span>
+                <div className="absolute top-16 left-0 w-full h-screen bg-dark-600/95 backdrop-blur-md z-40 lg:hidden mobile-menu">
+                    <div className="p-6 h-full overflow-y-auto">
+                        <ul className="flex flex-col gap-4">
+                            <li>
+                                <button 
+                                    onClick={() => toggleDropdown("products")} 
+                                    className="flex cursor-pointer text-white hover:text-purple-400 justify-between w-full text-left text-lg p-3 rounded-lg hover:bg-dark-500/50 transition-colors duration-200"
+                                >
+                                    Products
+                                    <span className="cursor-pointer transition-transform duration-200">
+                                        {dropdownOpen === "products" ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
+                                    </span>
+                                </button>
+                                {dropdownOpen === "products" && (
+                                    <div className="mt-2 p-4 bg-dark-500/50 rounded-lg border border-dark-300/20 animate-in slide-in-from-top-2 duration-200">
+                                        {products.map((product) => (
+                                            <div key={product.id} className="flex flex-col mb-6 last:mb-0">
+                                                <h3 className="text-lg text-gray-300 mb-3 font-medium">{product.title}</h3>
+                                                <span className='border-b border-gray-300/30 mb-3 w-full'></span>
+                                                <ul className="space-y-2">
+                                                    {product.links.map((item) => (
+                                                        <li key={item.link} className="flex items-center gap-2 text-gray-100 hover:text-purple-400 transition-colors duration-200 cursor-pointer p-2 rounded hover:bg-dark-400/50">
+                                                            <Check className='text-purple-400 h-4 w-4' />
+                                                            {item.link}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+                            </li>
 
-                                            <ul className="mt-1 mb-6">
-                                                {product.links.map((item) => (
-                                                    <li key={item.link} className="flex items-center gap-1 text-gray-100 hover:text-purple-400 transition-colors cursor-pointer">
-                                                        <Check className='text-gray-100 hover:text-purple-400 transition-colors' />
-                                                        {item.link}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    ))}
-                                </div>
-                            )}
-                        </li>
+                            <li>
+                                <button 
+                                    onClick={() => toggleDropdown("solutions")} 
+                                    className="flex cursor-pointer justify-between hover:text-purple-400 w-full text-left text-lg text-white p-3 rounded-lg hover:bg-dark-500/50 transition-colors duration-200"
+                                >
+                                    Solutions
+                                    <span className="cursor-pointer transition-transform duration-200">
+                                        {dropdownOpen === "solutions" ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
+                                    </span>
+                                </button>
+                                {dropdownOpen === "solutions" && (
+                                    <div className="mt-2 p-4 bg-dark-500/50 rounded-lg border border-dark-300/20 animate-in slide-in-from-top-2 duration-200">
+                                        {solutions.map((solution) => (
+                                            <div key={solution.id} className="flex flex-col mb-6 last:mb-0">
+                                                <h3 className="text-lg text-gray-300 mb-3 font-medium">{solution.title}</h3>
+                                                <span className='border-b border-gray-300/30 mb-3 w-full'></span>
+                                                <ul className="space-y-2">
+                                                    {solution.links.map((item) => (
+                                                        <li key={item.link} className="flex items-center gap-2 text-gray-100 hover:text-purple-400 transition-colors duration-200 cursor-pointer p-2 rounded hover:bg-dark-400/50">
+                                                            <Check className='text-purple-400 h-4 w-4' />
+                                                            {item.link}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+                            </li>
 
-                        <li>
-                            <button onClick={() => toggleDropdown("solutions")} className="flex cursor-pointer justify-between hover:text-purple-400 w-full text-left text-lg text-white">
-                                Solutions
-                                <span className="cursor-pointer">{dropdownOpen === "solutions" ? <ChevronUp /> : <ChevronDown />}</span>
-                            </button>
-                            {dropdownOpen === "solutions" && (
-                                <div className="mt-1 p-4 bg-gray-950 rounded-lg overflow-scroll">
-                                    {solutions.map((solution) => (
-                                        <div key={solution.id} className="flex flex-col">
-                                            <h3 className="text-lg text-gray-300 hover:text-purple-400 transition-colors">{solution.title}</h3>
-                                            <span className='border-b border-gray-100 mt-1 w-[300px]'></span>
+                            <li>
+                                <Link 
+                                    href="/about" 
+                                    className="block text-lg text-gray-100 hover:text-purple-400 transition-colors duration-200 p-3 rounded-lg hover:bg-dark-500/50" 
+                                    onClick={() => setMenuOpen(false)}
+                                >
+                                    About us
+                                </Link>
+                            </li>
+                            <li>
+                                <Link 
+                                    href="/contact" 
+                                    className="block text-lg text-gray-100 hover:text-purple-400 transition-colors duration-200 p-3 rounded-lg hover:bg-dark-500/50" 
+                                    onClick={() => setMenuOpen(false)}
+                                >
+                                    Contact
+                                </Link>
+                            </li>
+                            <li>
+                                <Link 
+                                    href="/pricing" 
+                                    className="block text-lg text-gray-100 hover:text-purple-400 transition-colors duration-200 p-3 rounded-lg hover:bg-dark-500/50" 
+                                    onClick={() => setMenuOpen(false)}
+                                >
+                                    Pricing
+                                </Link>
+                            </li>
+                        </ul>
 
-                                            <ul className="mt-1 mb-6">
-                                                {solution.links.map((item) => (
-                                                    <li key={item.link} className="flex items-center gap-1 text-gray-100 hover:text-purple-400 transition-colors cursor-pointer">
-                                                        <Check className='text-gray-100 hover:text-purple-400 transition-colors' />
-                                                        {item.link}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    ))}
-                                </div>
-                            )}
-                        </li>
+                        {/* Buttons */}
+                        <div className="mt-8 flex flex-col gap-3">
+                            <Link
+                                href="/login"
+                                className="text-white bg-purple-500 hover:bg-purple-600 py-3 px-6 font-medium w-full text-center transition-colors duration-200 rounded-lg"
+                                onClick={() => setMenuOpen(false)}
+                            >
+                                Log In
+                            </Link>
 
-                        <li><Link href="/about" className="text-lg text-gray-100 hover:text-purple-400 transition-colors" onClick={() => setMenuOpen(false)}>About us</Link></li>
-                        <li><Link href="/contact" className="text-lg text-gray-100 hover:text-purple-400 transition-colors" onClick={() => setMenuOpen(false)}>Contact</Link></li>
-                        <li><Link href="/pricing" className="text-lg text-gray-100 hover:text-purple-400 transition-colors" onClick={() => setMenuOpen(false)}>Pricing</Link></li>
-                    </ul>
-
-                    {/* Buttons */}
-                    <div className="mt-6 flex flex-col gap-3">
-                        <Link
-                            href="/login"
-                            className="text-white bg-purple-400 py-3 px-6 font-medium w-full text-center transition rounded-lg"
-                            onClick={() => setMenuOpen(false)}
-                        >
-                            Log In
-                        </Link>
-
-                        <Link
-                            href="/signup"
-                            className="bg-transparent border-purple-400 border text-white w-full text-center font-medium px-5 py-2 rounded-lg transition"
-                            onClick={() => setMenuOpen(false)}
-                        >
-                            Sign up free
-                        </Link>
+                            <Link
+                                href="/register"
+                                className="bg-transparent border border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white w-full text-center font-medium px-5 py-3 rounded-lg transition-all duration-200"
+                                onClick={() => setMenuOpen(false)}
+                            >
+                                Sign up free
+                            </Link>
+                        </div>
                     </div>
                 </div>
             )}
